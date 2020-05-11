@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "parcel ./src/static/index.html",
+    "build": "parcel build ./src/static/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,15 +20,18 @@
   },
   "homepage": "https://github.com/mark-halls/learnoer-web#readme",
   "devDependencies": {
-    "parcel-bundler": "^1.12.4"
+    "parcel-bundler": "^1.12.4",
+    "redux-devtools-extension": "^2.13.8"
   },
   "dependencies": {
     "@auth0/auth0-spa-js": "^1.8.1",
     "axios": "^0.19.2",
+    "normalize.css": "^8.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
-    "redux": "^4.0.5"
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0"
   }
 }
