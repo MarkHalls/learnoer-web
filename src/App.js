@@ -1,9 +1,11 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 import { applyMiddleware, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
+
+import HomePage from "./components/organisms/HomePage";
 
 import reducer from "./reducers";
 
@@ -13,7 +15,11 @@ function App() {
   return (
     <div className="App">
       <Provider store={store}>
-        <div>This is a test</div>
+        <Switch>
+          <Route path="/">
+            <HomePage />
+          </Route>
+        </Switch>
       </Provider>
     </div>
   );
