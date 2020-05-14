@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 import SearchIcon from "../atoms/SearchIcon";
 
@@ -7,10 +8,15 @@ import "./SearchBar.less";
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
-  const handleSubmit = () => {};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .get(`http://localhost:3000/api/search/${searchTerm}`)
+      .then((res) => console.log(res.data));
+  };
   return (
     <form id="search" role="search" onSubmit={handleSubmit}>
-      <div class="search">
+      <div className="search">
         <label htmlFor="search" className="search-label">
           <SearchIcon />
         </label>
