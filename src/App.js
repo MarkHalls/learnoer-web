@@ -6,6 +6,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 
 import HomePage from "./components/organisms/HomePage";
+import SearchResults from "./components/organisms/SearchResults";
 
 import reducer from "./reducers";
 
@@ -16,6 +17,9 @@ function App() {
     <div className="App">
       <Provider store={store}>
         <Switch>
+          <Route path="/results">
+            <SearchResults />
+          </Route>
           <Route path="/">
             <HomePage />
           </Route>
