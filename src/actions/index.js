@@ -11,11 +11,20 @@ const loading = () => ({ type: LOADING });
 
 const searchBooks = (searchTerm) => (dispatch) => {
   dispatch(loading());
-  const search = axios.get(`${searchApi}/${searchTerm}`);
-  // const books = search.data;
-  search.then((res) =>
-    dispatch({ type: SEARCH_BOOKS, payload: { books: res.data } })
-  );
+  return axios
+    .get(`${searchApi}/${searchTerm}`)
+    .then((res) =>
+      dispatch({ type: SEARCH_BOOKS, payload: { books: res.data } })
+    );
 };
 
-export default { searchBooks };
+const getBookByOlid = (olid) => (dispatch) => {
+  dispatch(loading());
+  return axios
+    .get(`${searchApi}/olid/${olid}`)
+    .then((res) =>
+      dispatch({ type: SEARCH_BOOKS, payload: { books: res.data } })
+    );
+};
+
+export default { searchBooks, getBookByOlid };

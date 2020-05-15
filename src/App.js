@@ -7,7 +7,7 @@ import thunk from "redux-thunk";
 
 import HomePage from "./components/organisms/HomePage";
 import ResultsPage from "./components/organisms/ResultsPage";
-// import BookPage from "./components/organisms/BookPage";
+import BookPage from "./components/organisms/BookPage";
 
 import reducer from "./reducers";
 
@@ -21,9 +21,9 @@ function App() {
           <Route path="/results">
             <ResultsPage />
           </Route>
-          {/* <Route path="/books">
+          <Route path="/books/:olid">
             <BookPage />
-          </Route> */}
+          </Route>
           <Route path="/">
             <HomePage />
           </Route>
