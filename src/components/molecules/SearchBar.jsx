@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 
@@ -11,11 +12,14 @@ import "./SearchBar.less";
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(actions.searchBooks(searchTerm));
+    history.push("/results");
   };
+
   return (
     <form id="search" role="search" onSubmit={handleSubmit}>
       <div className="search">
