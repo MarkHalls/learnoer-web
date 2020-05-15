@@ -4,6 +4,9 @@ const initialState = {
   books: {},
 };
 
+//TODO move localstorage handling to redux middleware
+//https://stackoverflow.com/questions/35305661/where-to-write-to-localstorage-in-a-redux-app
+
 const storageAppState = JSON.parse(localStorage.getItem("appState"));
 
 const setLocalStorage = (newState) =>
