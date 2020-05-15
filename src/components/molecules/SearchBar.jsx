@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import axios from "axios";
+
+import actions from "../../actions";
 
 import SearchIcon from "../atoms/SearchIcon";
 
@@ -7,12 +10,11 @@ import "./SearchBar.less";
 
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios
-      .get(`http://localhost:3000/api/search/${searchTerm}`)
-      .then((res) => console.log(res.data));
+    dispatch(actions.searchBooks(searchTerm));
   };
   return (
     <form id="search" role="search" onSubmit={handleSubmit}>
