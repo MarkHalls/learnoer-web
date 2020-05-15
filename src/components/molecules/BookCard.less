@@ -1,0 +1,41 @@
+.card {
+  grid-template-areas:
+    "book book"
+    "read review";
+
+  &-book {
+    grid-area: "book";
+    display: flex;
+    flex-flow: row nowrap;
+
+    &-cover {
+      max-height: 100%;
+      max-width: 100%;
+    }
+
+    &-title {
+      font-size: 1.6rem;
+      font-family: "Roboto Slab", serif;
+    }
+
+    &-author {
+      font-size: 1rem;
+    }
+
+    &-publisher {
+      font-size: 1rem;
+    }
+
+    &-reviewCount {
+      font-size: 1rem;
+    }
+  }
+
+  &-read {
+    grid-area: "read";
+  }
+
+  &-review {
+    grid-area: "review";
+  }
+}

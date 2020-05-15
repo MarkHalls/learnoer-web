@@ -29,7 +29,9 @@ const SearchResults = () => {
               publisher={publishers}
               cover={book.cover && book.cover.medium}
               reviewCount="0"
+              url={book.url}
               key={book.key}
+              bookKey={book.key}
             />
           );
         })}
