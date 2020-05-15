@@ -3,6 +3,8 @@ import { useSelector } from "react-redux";
 
 import BookCard from "../molecules/BookCard";
 
+import "./ResultsPage.less";
+
 const SearchResults = () => {
   //TODO ramda????
   const books = useSelector((state) => state.books);

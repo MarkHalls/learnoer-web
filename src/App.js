@@ -6,7 +6,8 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 
 import HomePage from "./components/organisms/HomePage";
-import SearchResults from "./components/organisms/SearchResults";
+import ResultsPage from "./components/organisms/ResultsPage";
+// import BookPage from "./components/organisms/BookPage";
 
 import reducer from "./reducers";
 
@@ -18,8 +19,11 @@ function App() {
       <Provider store={store}>
         <Switch>
           <Route path="/results">
-            <SearchResults />
+            <ResultsPage />
           </Route>
+          {/* <Route path="/books">
+            <BookPage />
+          </Route> */}
           <Route path="/">
             <HomePage />
           </Route>
