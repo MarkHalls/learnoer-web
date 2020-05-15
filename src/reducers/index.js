@@ -1,7 +1,8 @@
-import { LOADING, SEARCH_BOOKS } from "../actions";
+import { LOADING, SEARCH_BOOKS, SET_SEARCH_TERM } from "../actions";
 
 const initialState = {
   books: {},
+  searchTerm: "",
 };
 
 //TODO move localstorage handling to redux middleware
@@ -32,6 +33,16 @@ const reducer = (
         ...state,
         loading: false,
         books: action.payload.books,
+      };
+
+      setLocalStorage(newState);
+      return newState;
+    }
+
+    case SET_SEARCH_TERM: {
+      const newState = {
+        ...state,
+        searchTerm: action.payload.searchTerm,
       };
 
       setLocalStorage(newState);

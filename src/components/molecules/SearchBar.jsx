@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 
 import actions from "../../actions";
@@ -10,7 +10,8 @@ import SearchIcon from "../atoms/SearchIcon";
 import "./SearchBar.less";
 
 const SearchBar = () => {
-  const [searchTerm, setSearchTerm] = useState("");
+  const searchTermFromState = useSelector((state) => state.searchTerm);
+  const [searchTerm, setSearchTerm] = useState(searchTermFromState);
   const dispatch = useDispatch();
   const history = useHistory();
 
