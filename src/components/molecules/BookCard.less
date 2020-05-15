@@ -1,25 +1,41 @@
-.card {
+.book {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  // grid-auto-rows: minmax(50px, auto);
   grid-template-areas:
     "book book"
     "read review";
+  background: #ffffff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1), 0px 0px 16px rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  margin: 5%;
 
-  &-book {
+  &-card {
     grid-area: "book";
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
+    padding: 20px;
+
+    p {
+      color: #9f9a94;
+      margin: 0;
+      padding-top: 12px;
+    }
 
     &-cover {
-      max-height: 100%;
-      max-width: 100%;
+      align-self: flex-start;
     }
 
     &-title {
       font-size: 1.6rem;
       font-family: "Roboto Slab", serif;
+      font-weight: 700;
+      padding-top: 12px;
     }
 
     &-author {
-      font-size: 1rem;
+      font-size: 1.2rem;
+      color: #383430;
     }
 
     &-publisher {
@@ -28,14 +44,27 @@
 
     &-reviewCount {
       font-size: 1rem;
+      padding-top: 12px;
     }
   }
 
   &-read {
-    grid-area: "read";
+    grid-area: read;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+
+    .outsideLink {
+      padding-left: 5px;
+    }
   }
 
   &-review {
-    grid-area: "review";
+    grid-area: review;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
   }
 }
