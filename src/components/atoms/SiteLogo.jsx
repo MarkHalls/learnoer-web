@@ -1,8 +1,14 @@
 import React from "react";
 
-const SiteLogo = () => {
+const SiteLogo = ({ className }) => {
   return (
-    <svg width="48" height="48" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      width="48"
+      height="48"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+    >
       <path
         fillRule="evenodd"
         clipRule="evenodd"

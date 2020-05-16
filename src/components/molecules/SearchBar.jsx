@@ -9,7 +9,7 @@ import SearchIcon from "../atoms/SearchIcon";
 
 import "./SearchBar.less";
 
-const SearchBar = () => {
+const SearchBar = ({ className }) => {
   const searchTermFromState = useSelector((state) => state.searchTerm);
   const [searchTerm, setSearchTerm] = useState(searchTermFromState);
   const dispatch = useDispatch();
@@ -22,8 +22,13 @@ const SearchBar = () => {
   };
 
   return (
-    <form id="search" role="search" onSubmit={handleSubmit}>
-      <div className="search">
+    <form
+      id="search"
+      className={className}
+      role="search"
+      onSubmit={handleSubmit}
+    >
+      <div className={"search"}>
         <label htmlFor="search" className="search-label">
           <SearchIcon />
         </label>

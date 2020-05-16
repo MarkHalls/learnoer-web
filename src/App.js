@@ -5,6 +5,7 @@ import { applyMiddleware, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 
+import NavBar from "./components/molecules/NavBar";
 import HomePage from "./components/organisms/HomePage";
 import ResultsPage from "./components/organisms/ResultsPage";
 import BookPage from "./components/organisms/BookPage";
@@ -17,6 +18,7 @@ function App() {
   return (
     <div className="App">
       <Provider store={store}>
+        <NavBar />
         <Switch>
           <Route path="/results">
             <ResultsPage />
