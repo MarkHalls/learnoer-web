@@ -1,0 +1,15 @@
+{
+    "name": "LearnOER",
+    "short_name": "LearnOER",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#fff",
+    "description": "Easily find books you can read online for free.",
+    "icons": [
+        {
+            "src": "./logo.png",
+            "sizes": "48x48",
+            "type": "image/png"
+        }
+    ]
+}
