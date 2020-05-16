@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 import BookCard from "../molecules/BookCard";
+import Spinner from "../atoms/Spinner";
 
 import "./ResultsPage.less";
 
@@ -11,8 +12,8 @@ const SearchResults = () => {
   const loading = useSelector((state) => state.loading);
 
   return (
-    <>
-      {loading && <p>loading...</p>}
+    <div className="ResultsPage">
+      {loading && <Spinner className="ResultsPage-Spinner" />}
       {!loading &&
         books &&
         books.map((book) => {
@@ -37,7 +38,7 @@ const SearchResults = () => {
             />
           );
         })}
-    </>
+    </div>
   );
 };
 
