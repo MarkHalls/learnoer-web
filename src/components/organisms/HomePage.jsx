@@ -8,8 +8,9 @@ import "./HomePage.less";
 const HomePage = () => {
   return (
     <div className="content">
-      <SiteLogo />
-      <SearchBar />
+      <SiteLogo className="content-logo" />
+      <h1 className="content-title">Learn OER</h1>
+      <SearchBar className="content-search" />
     </div>
   );
 };

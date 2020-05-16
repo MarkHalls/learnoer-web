@@ -1,5 +1,26 @@
 .content {
-  display: flex;
-  flex-flow: column nowrap;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr repeat(3, auto) 2fr;
+  grid-template-areas:
+    "."
+    "logo"
+    "title"
+    "search";
   align-items: center;
+  justify-items: center;
+  // margin: 10%;
+  height: 100vh;
+
+  &-logo {
+    grid-area: logo;
+  }
+
+  &-title {
+    grid-area: title;
+  }
+
+  &-search {
+    grid-area: search;
+  }
 }
