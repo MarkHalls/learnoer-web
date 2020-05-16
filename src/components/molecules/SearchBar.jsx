@@ -12,10 +12,12 @@ import "./SearchBar.less";
 const SearchBar = ({ className }) => {
   const searchTermFromState = useSelector((state) => state.searchTerm);
   const [searchTerm, setSearchTerm] = useState(searchTermFromState);
+
   const dispatch = useDispatch();
   const history = useHistory();
 
   const handleSubmit = (e) => {
+    e.stopPropagation();
     e.preventDefault();
     dispatch(actions.searchBooks(searchTerm));
     history.push("/results");
