@@ -1,12 +1,13 @@
 .nav {
   display: grid;
-  grid-template-columns: 20% 30% 30% 20%;
-  grid-template-rows: 50px 50px;
+  grid-template-columns: 1fr 2fr 2fr 1fr;
+  grid-template-rows: 50px 40px;
   grid-template-areas:
-    "logo . . profile"
+    "logo title . profile"
     ". search search .";
-  align-items: center;
-  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  margin-top: 10px;
 
   &-logo {
     grid-area: logo;
@@ -14,11 +15,13 @@
 
   &-title {
     grid-area: title;
-    display: none;
+    justify-self: start;
   }
 
   &-search {
     grid-area: search;
+    margin-top: 10px;
+    min-width: 100%;
   }
 }
 
