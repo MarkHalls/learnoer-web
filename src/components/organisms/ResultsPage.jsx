@@ -22,8 +22,8 @@ const SearchResults = () => {
             : book.by_statement;
 
           const publishers = book.publishers
-            .map((publisher) => publisher.name)
-            .join(", ");
+            ? book.publishers.map((publisher) => publisher.name).join(", ")
+            : "";
 
           return (
             <BookCard
