@@ -10,7 +10,9 @@ import "./HomePage.less";
 const HomePage = () => {
   const dispatch = useDispatch();
 
-  useEffect(() => dispatch(actions.setSearchTerm("")), []);
+  useEffect(() => {
+    dispatch(actions.setSearchTerm(""));
+  }, []);
 
   return (
     <div className="content">
