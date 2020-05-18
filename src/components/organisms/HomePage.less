@@ -1,12 +1,13 @@
 .content {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr repeat(3, auto) 2fr;
+  grid-template-rows: 1fr repeat(4, auto) 2fr;
   grid-template-areas:
     "."
     "logo"
     "title"
-    "search";
+    "search"
+    "desc";
   align-items: center;
   justify-items: center;
   // margin: 10%;
@@ -23,5 +24,13 @@
 
   &-search {
     grid-area: search;
+  }
+
+  &-description {
+    grid-area: desc;
+    font-size: 1.2rem;
+    max-width: 250px;
+    text-align: center;
+    padding-top: 5px;
   }
 }

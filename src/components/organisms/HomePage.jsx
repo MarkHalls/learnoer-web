@@ -11,6 +11,7 @@ const HomePage = () => {
       <SiteLogo className="content-logo" />
       <h1 className="content-title">Learn OER</h1>
       <SearchBar className="content-search" />
+      <p className="content-description">Search by title or isbn and we'll find the closest matching book that can be read online for free.</p>
     </div>
   );
 };
