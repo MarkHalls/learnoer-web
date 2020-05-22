@@ -24,7 +24,6 @@ const SearchResults = () => {
           const publishers = book.publishers
             ? book.publishers.map((publisher) => publisher.name).join(", ")
             : "";
-
           return (
             <BookCard
               title={book.title}
@@ -38,6 +37,11 @@ const SearchResults = () => {
             />
           );
         })}
+      {!loading && books.length < 1 && (
+        <div className="ResultsPage-noResults">
+          Your search didn't return any books.
+        </div>
+      )}
     </div>
   );
 };
