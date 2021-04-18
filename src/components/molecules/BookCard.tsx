@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import { Link } from "react-router-dom";
 
 import DefaultCover from "../atoms/DefaultCover";
@@ -6,7 +6,17 @@ import OutSideLinkIcon from "../atoms/OutsideLinkIcon";
 
 import "./BookCard.less";
 
-const BookCard = ({
+type Props = {
+  title: string;
+  author: string;
+  publisher: string;
+  cover?: string;
+  reviewCount: string;
+  url: string;
+  bookKey: string;
+};
+
+const BookCard: FC<Props> = ({
   title,
   author,
   publisher,

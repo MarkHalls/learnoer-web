@@ -1,6 +1,10 @@
-import React from "react";
+import React, { FC } from "react";
 
-const SiteLogo = ({ className }) => {
+type Props = {
+  className?: string;
+};
+
+const SiteLogo: FC<Props> = ({ className }) => {
   return (
     <svg
       width="48"

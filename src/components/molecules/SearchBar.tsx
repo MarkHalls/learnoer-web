@@ -1,16 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, FC } from "react";
 import { useHistory } from "react-router-dom";
 
 import SearchIcon from "../atoms/SearchIcon";
 
 import "./SearchBar.less";
 
-const SearchBar = ({ className }) => {
+type Props = {
+  className?: string;
+};
+
+const SearchBar: FC<Props> = ({ className }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const history = useHistory();
 
-  const handleSubmit = (e) => {
+  const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.stopPropagation();
     e.preventDefault();
     history.push(`/results?search=${searchTerm}`);

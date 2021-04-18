@@ -1,6 +1,10 @@
-import React from "react";
+import React, { FC } from "react";
 
-const DefaultCover = ({ className }) => {
+type Props = {
+  className?: string;
+};
+
+const DefaultCover: FC<Props> = ({ className }) => {
   return (
     <svg
       width="100"

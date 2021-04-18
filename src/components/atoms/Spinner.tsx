@@ -1,9 +1,13 @@
-import React from "react";
+import React, { FC } from "react";
 import cs from "classnames";
 
 import "./Spinner.less";
 
-const Spinner = ({ className }) => {
+type Props = {
+  className?: string;
+};
+
+const Spinner: FC<Props> = ({ className }) => {
   return (
     <div className={cs(className, "Spinner")}>
       <div className="Spinner-animation"></div>

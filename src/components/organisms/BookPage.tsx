@@ -8,12 +8,16 @@ import BookCard from "../molecules/BookCard";
 import "./BookPage.less";
 
 const BookPage = () => {
-  const { olid } = useParams();
+  const { olid } = useParams<{ olid: string }>();
 
   const { isLoading, data } = queries.useBookByOlid(olid);
 
   if (isLoading) {
     return <p>Loading...</p>;
+  }
+  
+  if (!data) {
+    return <p>Oh noes, no data!</p>
   }
 
   return (
