@@ -1,6 +1,5 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { useQuery } from "react-query";
 
 import queries from "../../queries";
 
@@ -11,9 +10,7 @@ import "./BookPage.less";
 const BookPage = () => {
   const { olid } = useParams();
 
-  const { isLoading, data } = useQuery(["getBookByOlid", olid], () =>
-    queries.getBookByOlid(olid)
-  );
+  const { isLoading, data } = queries.useBookByOlid(olid);
 
   if (isLoading) {
     return <p>Loading...</p>;

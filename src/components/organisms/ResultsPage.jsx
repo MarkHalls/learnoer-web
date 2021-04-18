@@ -1,5 +1,4 @@
 import React from "react";
-import { useQuery } from "react-query";
 import { useLocation } from "react-router-dom";
 
 import BookCard from "../molecules/BookCard";
@@ -13,9 +12,7 @@ const SearchResults = () => {
 
   const searchTerm = new URLSearchParams(useLocation().search).get("search");
 
-  const { isLoading, data } = useQuery(["searchBooks", searchTerm], () =>
-    queries.searchBooks(searchTerm)
-  );
+  const { isLoading, data } = queries.useSearchResults(searchTerm);
 
   return (
     <div className="ResultsPage">

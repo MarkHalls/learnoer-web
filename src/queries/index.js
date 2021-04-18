@@ -1,37 +1,42 @@
 import axios from "axios";
+import { useQuery } from "react-query";
 
 const searchApi = process.env.search_api
   ? process.env.search_api
   : "http://localhost:3000/api/search";
 
-const searchBooks = async (searchTerm) => {
-  const res = await axios.get(`${searchApi}/${searchTerm}`);
-  return res.data;
+const useSearchResults = (searchTerm) => {
+  return useQuery(["searchBooks", searchTerm], async () => {
+    const res = await axios.get(`${searchApi}/${searchTerm}`);
+    return res.data;
+  });
 };
 
-const getBookByOlid = async (olid) => {
-  const res = await axios.get(`${searchApi}/olid/${olid}`);
+const useBookByOlid = (olid) => {
+  return useQuery(["getBookByOlid", olid], async () => {
+    const res = await axios.get(`${searchApi}/olid/${olid}`);
 
-  const book = res.data[0];
+    const book = res.data[0];
 
-  if (!book) {
-    return null;
-  }
+    if (!book) {
+      return null;
+    }
 
-  const authors = book.authors
-    ? book.authors.map((author) => author.name).join(", ")
-    : book.by_statement;
+    const authors = book.authors
+      ? book.authors.map((author) => author.name).join(", ")
+      : book.by_statement;
 
-  const publishers = book.publishers
-    .map((publisher) => publisher.name)
-    .join(", ");
+    const publishers = book.publishers
+      .map((publisher) => publisher.name)
+      .join(", ");
 
-  return {
-    ...book,
-    authors,
-    publishers,
-    cover: book.cover?.medium,
-  };
+    return {
+      ...book,
+      authors,
+      publishers,
+      cover: book.cover?.medium,
+    };
+  });
 };
 
-export default { searchBooks, getBookByOlid };
+export default { useSearchResults, useBookByOlid };
