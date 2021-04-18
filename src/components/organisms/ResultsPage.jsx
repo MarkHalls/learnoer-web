@@ -1,22 +1,27 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useQuery } from "react-query";
+import { useLocation } from "react-router-dom";
 
 import BookCard from "../molecules/BookCard";
 import Spinner from "../atoms/Spinner";
+import queries from "../../queries";
 
 import "./ResultsPage.less";
 
 const SearchResults = () => {
   //TODO ramda????
-  const books = useSelector((state) => state.books);
-  const loading = useSelector((state) => state.loading);
+
+  const searchTerm = new URLSearchParams(useLocation().search).get("search");
+
+  const { isLoading, data } = useQuery(["searchBooks", searchTerm], () =>
+    queries.searchBooks(searchTerm)
+  );
 
   return (
     <div className="ResultsPage">
-      {loading && <Spinner className="ResultsPage-Spinner" />}
-      {!loading &&
-        books &&
-        books.map((book) => {
+      {isLoading && <Spinner className="ResultsPage-Spinner" />}
+      {!isLoading &&
+        data?.map((book) => {
           const authors = book.authors
             ? book.authors.map((author) => author.name).join(", ")
             : book.by_statement;
@@ -37,7 +42,7 @@ const SearchResults = () => {
             />
           );
         })}
-      {!loading && books.length < 1 && (
+      {!isLoading && data.length < 1 && (
         <div className="ResultsPage-noResults">
           Your search didn't return any books.
         </div>

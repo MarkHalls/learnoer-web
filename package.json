@@ -26,8 +26,7 @@
   "devDependencies": {
     "@parcel/transformer-less": "^2.0.0-beta.2",
     "less": "^3.11.1",
-    "parcel": "^2.0.0-beta.2",
-    "redux-devtools-extension": "^2.13.8"
+    "parcel": "^2.0.0-beta.2"
   },
   "dependencies": {
     "@auth0/auth0-spa-js": "^1.8.1",
@@ -37,9 +36,7 @@
     "parcel-plugin-static-files-copy": "^2.3.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-redux": "^7.2.0",
-    "react-router-dom": "^5.1.2",
-    "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0"
+    "react-query": "^3.13.10",
+    "react-router-dom": "^5.1.2"
   }
 }

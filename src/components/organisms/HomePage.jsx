@@ -1,19 +1,11 @@
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import React from "react";
 
-import actions from "../../actions";
 import SearchBar from "../molecules/SearchBar";
 import SiteLogo from "../atoms/SiteLogo";
 
 import "./HomePage.less";
 
 const HomePage = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(actions.setSearchTerm(""));
-  }, []);
-
   return (
     <div className="content">
       <SiteLogo className="content-logo" />

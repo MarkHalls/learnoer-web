@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React from "react";
 import { useParams } from "react-router-dom";
+import { useQuery } from "react-query";
 
-import actions from "../../actions";
+import queries from "../../queries";
 
 import BookCard from "../molecules/BookCard";
 
@@ -10,46 +10,25 @@ import "./BookPage.less";
 
 const BookPage = () => {
   const { olid } = useParams();
-  const loading = useSelector((state) => state.loading);
-  const dispatch = useDispatch();
-  const book = useSelector((state) =>
-    state.books.filter((book) => book.key === `/books/${olid}`)
+
+  const { isLoading, data } = useQuery(["getBookByOlid", olid], () =>
+    queries.getBookByOlid(olid)
   );
 
-  useEffect(() => {
-    if (book.length === 0) {
-      dispatch(actions.getBookByOlid(olid));
-    }
-  }, []);
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
 
   return (
-    <>
-      {loading && <p>loading...</p>}
-      {!loading &&
-        book &&
-        book.map((book) => {
-          const authors = book.authors
-            ? book.authors.map((author) => author.name).join(", ")
-            : book.by_statement;
-
-          const publishers = book.publishers
-            .map((publisher) => publisher.name)
-            .join(", ");
-
-          return (
-            <BookCard
-              title={book.title}
-              author={authors}
-              publisher={publishers}
-              cover={book.cover && book.cover.medium}
-              reviewCount="0"
-              url={book.url}
-              key={book.key}
-              bookKey={book.key}
-            />
-          );
-        })}
-    </>
+    <BookCard
+      title={data.title}
+      author={data.authors}
+      publisher={data.publishers}
+      cover={data.cover}
+      reviewCount="0"
+      url={data.url}
+      bookKey={data.key}
+    />
   );
 };
 

@@ -1,23 +1,19 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import { Provider } from "react-redux";
-import { applyMiddleware, createStore } from "redux";
-import { composeWithDevTools } from "redux-devtools-extension";
-import thunk from "redux-thunk";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 import NavBar from "./components/molecules/NavBar";
 import HomePage from "./components/organisms/HomePage";
 import ResultsPage from "./components/organisms/ResultsPage";
 import BookPage from "./components/organisms/BookPage";
 
-import reducer from "./reducers";
-
-const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
+// Create a client
+const queryClient = new QueryClient();
 
 function App() {
   return (
     <div className="App">
-      <Provider store={store}>
+      <QueryClientProvider client={queryClient}>
         <NavBar />
         <Switch>
           <Route path="/results">
@@ -30,7 +26,7 @@ function App() {
             <HomePage />
           </Route>
         </Switch>
-      </Provider>
+      </QueryClientProvider>
     </div>
   );
 }
