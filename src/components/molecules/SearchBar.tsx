@@ -1,5 +1,5 @@
 import React, { useState, FC } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 
 import SearchIcon from "../atoms/SearchIcon";
 
@@ -10,7 +10,9 @@ type Props = {
 };
 
 const SearchBar: FC<Props> = ({ className }) => {
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState(
+    new URLSearchParams(useLocation().search).get("search") ?? ""
+  );
 
   const history = useHistory();
 
