@@ -1,6 +1,8 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 
+import { useSearchTerm } from "../hooks";
+
 import BookCard from "../molecules/BookCard";
 import Spinner from "../atoms/Spinner";
 import queries from "../../queries";
@@ -10,7 +12,7 @@ import "./ResultsPage.less";
 const SearchResults = () => {
   //TODO ramda????
 
-  const searchTerm = new URLSearchParams(useLocation().search).get("search");
+  const searchTerm = useSearchTerm();
 
   if (!searchTerm) {
     return <p>Oops, something went wrong. Please try again.</p>;
