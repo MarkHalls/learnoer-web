@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 import { Link } from "react-router-dom";
 
-import DefaultCover from "../atoms/DefaultCover";
-import OutSideLinkIcon from "../atoms/OutsideLinkIcon";
+import Cover from "../atoms/Cover";
+import ReadButton from "../atoms/ReadButton";
 
 import "./BookCard.less";
 
@@ -28,13 +28,12 @@ const BookCard: FC<Props> = ({
   return (
     <div className="book">
       <div className="book-card">
-        <Link to={bookKey} className="book-card-cover">
-          {cover ? (
-            <img src={cover} alt={`${title} cover image`} />
-          ) : (
-            <DefaultCover />
-          )}
-        </Link>
+        <Cover
+          bookKey={bookKey}
+          title={title}
+          cover={cover}
+          className="book-card-cover"
+        />
         <Link to={bookKey} className="book-card-title">
           {title}
         </Link>
@@ -42,14 +41,11 @@ const BookCard: FC<Props> = ({
           by <span className="book-card-author">{author}</span>
         </p>
         <p>{`published by ${publisher}`}</p>
-        <Link to={`${bookKey}`} className="book-card-reviewCount">
+        <Link to={bookKey} className="book-card-reviewCount">
           {reviewCount} reviews
         </Link>
       </div>
-      <a href={url} className="book-read button">
-        <span>Read now </span>
-        <OutSideLinkIcon />
-      </a>
+      <ReadButton url={url} className={"book-read"} />
       <Link to={`${bookKey}/#compose`} className="book-review button">
         Write a review
       </Link>

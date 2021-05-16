@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Search by title or isbn and we'll find the closest matching book that can be read online for free.",
   "scripts": {
-    "start": "parcel ./src/static/index.html",
-    "build": "parcel build ./src/static/index.html",
+    "start": "parcel ./src/public/index.html",
+    "build": "parcel build ./src/public/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "staticFiles": {
