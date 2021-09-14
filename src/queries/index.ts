@@ -1,4 +1,4 @@
-import axios from "axios";
+import ky from "ky";
 import { useQuery } from "react-query";
 
 const searchApi = process.env.search_api
@@ -7,8 +7,8 @@ const searchApi = process.env.search_api
 
 const useSearchResults = (searchTerm: string) => {
   return useQuery(["searchBooks", searchTerm], async () => {
-    const res = await axios.get<Book[]>(`${searchApi}/${searchTerm}`);
-    return res.data;
+    const json = await ky.get(`${searchApi}/${searchTerm}`).json<Book[]>();
+    return json;
   });
 };
 
@@ -24,9 +24,7 @@ type Book = {
 
 const useBookByOlid = (olid: string) => {
   return useQuery(["getBookByOlid", olid], async () => {
-    const res = await axios.get<Book[]>(`${searchApi}/olid/${olid}`);
-
-    const book = res.data[0];
+    const book = await ky.get(`${searchApi}/olid/${olid}`).json<Book>();
 
     if (!book) {
       return null;
