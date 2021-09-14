@@ -52,3 +52,4 @@ sketch
 .cache
 dist
 .parcel-cache
+.env

@@ -3,6 +3,7 @@ import { NavLink, useLocation } from "react-router-dom";
 
 import SearchBar from "./SearchBar";
 import SiteLogo from "../atoms/SiteLogo";
+import SignInOut from "../atoms/SignInOut";
 
 import "./NavBar.less";
 
@@ -20,6 +21,7 @@ const NavBar = () => {
           </NavLink>
           <h1 className="nav-title">Learn OER</h1>
           <SearchBar className={"nav-search"} />
+          <SignInOut className={"nav-signin"} />
         </div>
       )}
     </>
