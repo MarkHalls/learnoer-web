@@ -1,34 +1,26 @@
 import React, { FC, useEffect } from "react";
 import cn from "classnames";
 
+import { useAppContext } from "../../appState";
+
+import { renderButton } from "../../utils/googleLogin";
+
 import "./LoginModal.less";
 
 type Props = {
   className: string;
-  onClose: Function;
 };
 
-const LoginModal: FC<Props> = ({ className, onClose }) => {
-  const handleGoogleSignIn = (res: any) => {
-    console.log(res);
-  };
+const LoginModal: FC<Props> = ({ className }) => {
+  const [state, dispatch] = useAppContext();
 
   const handleExitClick = () => {
-    onClose();
+    dispatch({ type: "toggleLoginModal" });
   };
 
   useEffect(() => {
-    const element = document.getElementsByClassName(
-      "googleButton"
-    )[0] as HTMLElement;
-
-    if (window.google && element) {
-      window.google.accounts.id.renderButton(
-        element,
-        { theme: "outline", size: "large" } // customization attributes
-      );
-    }
-  }, [handleGoogleSignIn, window.onGoogleLibraryLoad]);
+    renderButton("googleButton");
+  }, []);
 
   return (
     <div className={cn("modal")} onClick={handleExitClick}>

@@ -3,11 +3,3 @@ import { useLocation } from "react-router-dom";
 export const useSearchTerm = () => {
   return new URLSearchParams(useLocation().search).get("search") ?? "";
 };
-
-export const useGoogleLogin = () => {
-  //   {
-  //     "clientId": "94659858325-0char09tll4ccli64qvkosc63llhqd4d.apps.googleusercontent.com",
-  //     "credential": "eyJhbGciOiJSUzI1NiIsImtpZCI6Ijc0MjE3YjhkYWRiYjM2NTc4MzU4MGY5ZTkyNDg3ZDcwMWNkMzhmZTYiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYmYiOjE2MzIxNjI0NzcsImF1ZCI6Ijk0NjU5ODU4MzI1LTBjaGFyMDl0bGw0Y2NsaTY0cXZrb3NjNjNsbGhxZDRkLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTA5NzU4OTgwMjI5NjI4NDAwMTE1IiwiZW1haWwiOiJmaXJlcmFpc3JAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImF6cCI6Ijk0NjU5ODU4MzI1LTBjaGFyMDl0bGw0Y2NsaTY0cXZrb3NjNjNsbGhxZDRkLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwibmFtZSI6Ik1hcmsgSGFsbHMiLCJwaWN0dXJlIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EtL0FPaDE0R2puQUM2dDV0VWhMOVF6a1FTb1ZvZWl1UENqSGF0eWhRRnhyT29PdFE9czk2LWMiLCJnaXZlbl9uYW1lIjoiTWFyayIsImZhbWlseV9uYW1lIjoiSGFsbHMiLCJpYXQiOjE2MzIxNjI3NzcsImV4cCI6MTYzMjE2NjM3NywianRpIjoiOTE3N2U2NmFkMTA2ZGNhM2Y3YjczYTBhNTBkYzQ1YzZiMzRmYTI1YyJ9.QmGidhyB3ZuJHoofT0OWTr-1yLYcbOARJF7BoL2SpGh-_TXKe89zPNsGgmzwxZrBTotnM_1yyC2ukTi8IIf3N3a5UQyR9orjQYzuGThqZOCv2Dpzq9Fj1vbbntjsQ0S4zis_1TtOdFjL-pWmz-JbqkUdBd6CVdUgiJD9ICzCf4KG6m9aFTvv-uLSCD_ShPmnqqVLj7U7JImh6kmLSR6k7VHF-KgEYk1E8BbIlf_O4BWB2c2yO7IpnjCqcnhhPeKtx_24mqpXRNW0tJZ6cMhUNB9UrE9Il3uiJWN13DDZDje1QdA1MquRfoBo038r3B9Qd-un5eogZl-y9A-PIEEp6w",
-  //     "select_by": "user"
-  // }
-};

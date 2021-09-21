@@ -1,6 +1,9 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC } from "react";
 import ReactDOM from "react-dom";
 import cn from "classnames";
+
+import { useAppContext } from "../../appState";
+import { Action } from "../../appState/actions";
 
 import LoginModal from "../atoms/LoginModal";
 
@@ -9,10 +12,10 @@ type Props = {
 };
 
 const SignInOut: FC<Props> = ({ className }) => {
-  const [showModal, setShowModal] = useState(false);
+  const [state, dispatch] = useAppContext();
 
   const handleClick = () => {
-    setShowModal(!showModal);
+    dispatch({ type: "toggleLoginModal" });
   };
 
   return (
@@ -23,12 +26,9 @@ const SignInOut: FC<Props> = ({ className }) => {
       >
         Login
       </button>
-      {showModal &&
+      {state.showLoginModal &&
         ReactDOM.createPortal(
-          <LoginModal
-            className={cn(className, `${className}-LoginModal`)}
-            onClose={handleClick}
-          />,
+          <LoginModal className={cn(className, `${className}-LoginModal`)} />,
           document.getElementById("root") as Element
         )}
     </>
