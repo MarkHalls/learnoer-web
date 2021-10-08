@@ -6,6 +6,7 @@ import { useAppContext } from "../../appState";
 import { Action } from "../../appState/actions";
 
 import LoginModal from "../atoms/LoginModal";
+import Portal from "../atoms/Portal";
 
 type Props = {
   className?: string;
@@ -15,7 +16,7 @@ const SignInOut: FC<Props> = ({ className }) => {
   const [state, dispatch] = useAppContext();
 
   const handleClick = () => {
-    dispatch({ type: "toggleLoginModal" });
+    dispatch({ type: "togglePortal", name: "loginModal" });
   };
 
   return (
@@ -26,11 +27,9 @@ const SignInOut: FC<Props> = ({ className }) => {
       >
         Login
       </button>
-      {state.showLoginModal &&
-        ReactDOM.createPortal(
-          <LoginModal className={cn(className, `${className}-LoginModal`)} />,
-          document.getElementById("root") as Element
-        )}
+      <Portal portalName="loginModal">
+        <LoginModal className={cn(className, `${className}-LoginModal`)} />
+      </Portal>
     </>
   );
 };

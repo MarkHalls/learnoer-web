@@ -15,7 +15,7 @@ const LoginModal: FC<Props> = ({ className }) => {
   const [state, dispatch] = useAppContext();
 
   const handleExitClick = () => {
-    dispatch({ type: "toggleLoginModal" });
+    dispatch({ type: "togglePortal", name: "loginModal" });
   };
 
   useEffect(() => {

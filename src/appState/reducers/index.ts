@@ -2,7 +2,7 @@ import { Action } from "../actions";
 
 export type AppState = {
   loggedIn: boolean;
-  showLoginModal: boolean;
+  loginModal: boolean;
   user?: {
     username: string;
     profileImg: string;
@@ -11,16 +11,16 @@ export type AppState = {
 
 export const initialState = {
   loggedIn: false,
-  showLoginModal: false,
+  loginModal: false,
 };
 
 export const reducer = (state: AppState, action: Action): AppState => {
   switch (action.type) {
-    case "toggleLoginModal": {
-      return { ...state, showLoginModal: !state.showLoginModal };
+    case "togglePortal": {
+      return { ...state, [action.name]: !state[action.name] };
     }
     case "loggedIn": {
-      return { ...state, showLoginModal: false, user: action.user };
+      return { ...state, loginModal: false, user: action.user };
     }
     default: {
       return state;

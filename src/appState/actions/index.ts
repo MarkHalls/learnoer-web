@@ -1,5 +1,5 @@
 export type Action =
-  | { type: "toggleLoginModal" }
+  | { type: "togglePortal"; name: PortalName }
   | {
       type: "loggedIn";
       user: {
@@ -7,3 +7,5 @@ export type Action =
         profileImg: string;
       };
     };
+
+export type PortalName = "loginModal";
